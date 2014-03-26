@@ -72,6 +72,7 @@ VAMActivate
 	\	vim-airline
 	\	vim-gitgutter
 	\	vim-json
+	\ vim-snippets
 	\	vim-twig
 
 let ft_addons = {
