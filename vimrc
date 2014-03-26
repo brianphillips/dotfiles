@@ -21,7 +21,13 @@ au InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm
 " }}}2
 
 " Vim Addon Manager Setup {{{2
-fun MyPoolFun()
+let g:vim_addon_manager = {
+	\'shell_commands_run_method': 'system',
+	\'auto_install': 1,
+	\'log_to_buf': 1,
+	\}
+
+fun ExtraPluginRepos()
   let d = vam#install#Pool()
   let d['perltest'] = { 'type' : 'git', 'url' : 'git://github.com/threebytesfull/perltest' }
   let d['vim-rubocop']  = { 'type' : 'git', 'url' : 'git://github.com/ngmy/vim-rubocop' }
@@ -31,9 +37,8 @@ fun MyPoolFun()
 	let d['vim-dragvisuals'] = { 'type' : 'git', 'url' : 'git://github.com/atweiden/vim-dragvisuals' }
   return d
 endf
-let g:vim_addon_manager = {}
-let g:vim_addon_manager.pool_fun = function('MyPoolFun')
 
+let g:vim_addon_manager.pool_fun = function('ExtraPluginRepos')
 
 fun! EnsureVamIsOnDisk(vam_install_path)
   if !filereadable(a:vam_install_path.'/vim-addon-manager/.git/config')
