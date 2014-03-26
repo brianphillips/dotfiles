@@ -21,12 +21,6 @@ au InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm
 " }}}2
 
 " Vim Addon Manager Setup {{{2
-let g:vim_addon_manager = {
-	\'shell_commands_run_method': 'system',
-	\'auto_install': 1,
-	\'log_to_buf': 1,
-	\}
-
 fun ExtraPluginRepos()
   let d = vam#install#Pool()
   let d['perltest'] = { 'type' : 'git', 'url' : 'git://github.com/threebytesfull/perltest' }
@@ -38,6 +32,7 @@ fun ExtraPluginRepos()
   return d
 endf
 
+let g:vim_addon_manager = {}
 let g:vim_addon_manager.pool_fun = function('ExtraPluginRepos')
 
 fun! EnsureVamIsOnDisk(vam_install_path)
