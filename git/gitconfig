@@ -1,7 +1,7 @@
 [color]
 	ui = true
 [include]
-	.gitconfig.local
+	path = .gitconfig.local
 [user]
 	name = Brian Phillips
 [github]
