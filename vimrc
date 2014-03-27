@@ -24,11 +24,8 @@ au InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm
 fun ExtraPluginRepos()
   let d = vam#install#Pool()
   let d['perltest'] = { 'type' : 'git', 'url' : 'git://github.com/threebytesfull/perltest' }
-  let d['vim-rubocop']  = { 'type' : 'git', 'url' : 'git://github.com/ngmy/vim-rubocop' }
   let d['vim-mocha'] = { 'type' : 'git', 'url' : 'git://github.com/geekjuice/vim-mocha' }
-	let d['floobits-vim'] = { 'type' : 'git', 'url' : 'git://github.com/Floobits/floobits-vim' }
-	let d['vim-json'] = { 'type' : 'git', 'url' : 'git://github.com/elzr/vim-json' }
-	let d['vim-dragvisuals'] = { 'type' : 'git', 'url' : 'git://github.com/atweiden/vim-dragvisuals' }
+  let d['vim-json'] = { 'type' : 'git', 'url' : 'git://github.com/elzr/vim-json' }
   return d
 endf
 
@@ -48,9 +45,7 @@ fun! SetupVAM()
   let vam_install_path = expand('$HOME') . '/.vim/vim-addons'
   call EnsureVamIsOnDisk(vam_install_path)
   exec 'set runtimepath+='.vam_install_path.'/vim-addon-manager'
-  call vam#ActivateAddons([
-		\ ], {'auto_install' : 1}
-	\ )
+  call vam#ActivateAddons([], {'auto_install' : 1} )
 endfun
 
 call SetupVAM()
@@ -58,28 +53,29 @@ call SetupVAM()
 
 " VIM plugins {{{2
 VAMActivate
-	\ ctrlp
-	\ desert256
-	\ fugitive
-	\	local_vimrc
-	\	nginx
-	\	Puppet_Syntax_Highlighting
-	\	surround
-	\	Syntastic
-	\	Tagbar
-	\	The_NERD_tree
-	\	UltiSnips
-	\	vim-airline
-	\	vim-gitgutter
-	\	vim-json
-	\ vim-snippets
-	\	vim-twig
+  \ ctrlp
+  \ desert256
+  \ fugitive
+  \ local_vimrc
+  \ nginx
+  \ Puppet_Syntax_Highlighting
+  \ surround
+  \ Syntastic
+  \ Tagbar
+  \ The_NERD_tree
+  \ UltiSnips
+  \ vim-airline
+  \ vim-gitgutter
+  \ vim-json
+  \ vim-snippets
+  \ vim-twig
 
+" filetype specific plugins
 let ft_addons = {
-  \ 'perl': [ 'perltest', 'Perl_MooseXDeclare_Syntax' ],
+  \ 'perl': [ 'perltest' ],
   \ 'php':  [ 'phpfolding' ],
-  \ 'ruby': [ 'Rubytest', 'vim-rubocop', 'vim-ruby' ],
-	\ 'javascript': ['vim-mocha', 'Enhanced_Javascript_syntax'],
+  \ 'ruby': [ 'Rubytest', 'vim-ruby' ],
+  \ 'javascript': ['vim-mocha', 'Enhanced_Javascript_syntax'],
 \ }
 au FileType * for l in values(filter(copy(ft_addons), string(expand('<amatch>')).' =~ v:key')) | call vam#ActivateAddons(l, {'force_loading_plugins_now':1}) | endfor
 "}}}2
@@ -99,7 +95,10 @@ set t_Co=256
 filetype plugin on
 set shiftwidth=2
 set tabstop=2
+set smarttab
 set smartindent
+set autoindent
+inoremap # X#
 
 set noshowmode
 set laststatus=2  " Always show status line
