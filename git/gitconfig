@@ -1,0 +1,16 @@
+[color]
+	ui = true
+[include]
+	.gitconfig.local
+[user]
+	name = Brian Phillips
+[github]
+	user = brianphillips
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[rerere]
+	enabled = true
+[push]
+	default = current
