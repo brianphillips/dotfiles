@@ -14,3 +14,10 @@
 	enabled = true
 [push]
 	default = current
+[alias]
+	merged = branch --merged
+	contains = branch --contains
+	merge-into = "!f() { git checkout $1 && git pull && git merge @{-1} && git checkout @{-1}; }; f"
+	ctags = !.git/hooks/ctags
+[init]
+	templatedir = ~/.git_template

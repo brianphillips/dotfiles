@@ -8,3 +8,5 @@ install-vim:
 install-git:
 	rm ~/.gitconfig
 	ln -s `pwd`/git/gitconfig ~/.gitconfig
+	rm -rf ~/.git_template
+	ln -s `pwd`/git/template ~/.git_template
