@@ -19,5 +19,6 @@
 	contains = branch --contains
 	merge-into = "!f() { git checkout $1 && git pull && git merge @{-1} && git checkout @{-1}; }; f"
 	ctags = !.git/hooks/ctags
+	recent = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(authoremail) %(refname:short)'
 [init]
 	templatedir = ~/.git_template

@@ -57,10 +57,12 @@ VAMActivate
   \ desert256
   \ fugitive
   \ local_vimrc
+  \ matchit.zip
   \ nginx
   \ Puppet_Syntax_Highlighting
   \ surround
   \ Syntastic
+  \ textobj-rubyblock
   \ Tagbar
   \ The_NERD_tree
   \ UltiSnips
@@ -132,6 +134,11 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let g:airline_powerline_fonts = 1
 
+"let g:rubytest_in_quickfix = 1
+let g:rubytest_cmd_spec = "ruby %p"
+let g:rubytest_cmd_example = "ruby %p -n '/%c/'"
+let g:rubytest_minitest_spec = 1
+
 " }}}2
 
 " Mappings {{{2
@@ -148,4 +155,4 @@ map <leader>gt :Extradite<CR>
 map <leader>gb :Gblame<CR>
 "}}}2
 
-" vim: set foldmethod=marker:
+" vim: set foldmethod=marker et ts=2 sw=2:
