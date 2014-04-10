@@ -6,7 +6,7 @@ install-vim:
 	ln -s ~/.vim/vimrc ~/.vimrc
 
 install-git:
-	rm ~/.gitconfig
+	rm -f ~/.gitconfig
 	ln -s `pwd`/git/gitconfig ~/.gitconfig
 	rm -rf ~/.git_template
 	ln -s `pwd`/git/template ~/.git_template
