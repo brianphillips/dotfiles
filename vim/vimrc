@@ -24,6 +24,7 @@ au InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm
 fun ExtraPluginRepos()
   let d = vam#install#Pool()
   let d['perltest'] = { 'type' : 'git', 'url' : 'git://github.com/threebytesfull/perltest' }
+  let d['localvimrc.git'] = { 'type' : 'git', 'url' : 'git://github.com/embear/vim-localvimrc' }
   let d['vim-mocha'] = { 'type' : 'git', 'url' : 'git://github.com/geekjuice/vim-mocha' }
   let d['vim-json'] = { 'type' : 'git', 'url' : 'git://github.com/elzr/vim-json' }
   return d
@@ -56,7 +57,7 @@ VAMActivate
   \ ctrlp
   \ desert256
   \ fugitive
-  \ local_vimrc
+  \ localvimrc.git
   \ matchit.zip
   \ nginx
   \ Puppet_Syntax_Highlighting
@@ -139,6 +140,7 @@ let g:rubytest_cmd_spec = "ruby %p"
 let g:rubytest_cmd_example = "ruby %p -n '/%c/'"
 let g:rubytest_minitest_spec = 1
 
+let g:localvimrc_persistent = 1
 " }}}2
 
 " Mappings {{{2
