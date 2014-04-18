@@ -22,8 +22,12 @@ POWERLINE_USER_NAME=""
 if [ "$POWERLINE_HIDE_USER_NAME" = "" ]; then
     POWERLINE_USER_NAME="%n"
 fi
+
+function box_name {
+	[ -f ~/.box-name ] && cat ~/.box-name || hostname -s
+}
 if [ "$POWERLINE_HIDE_HOST_NAME" = "" ]; then
-    POWERLINE_USER_NAME="$POWERLINE_USER_NAME@%m"
+    POWERLINE_USER_NAME="$POWERLINE_USER_NAME@"$(box_name)
 fi
 
 POWERLINE_CURRENT_PATH="%d"
