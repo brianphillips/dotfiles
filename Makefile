@@ -1,12 +1,27 @@
-install: install-vim install-git
+install: install-vim install-git install-sh install-smartcd
+	git config user.email brian@thephillips.info
 
 install-vim:
-	rm -rf ~/.vim ~/.vimrc
-	ln -s `pwd`/vim ~/.vim
-	ln -s ~/.vim/vimrc ~/.vimrc
+	ln -fs `pwd`/vim ~/.vim
+	ln -fs ~/.vim/vimrc ~/.vimrc
 
 install-git:
-	rm -f ~/.gitconfig
-	ln -s `pwd`/git/gitconfig ~/.gitconfig
-	rm -rf ~/.git_template
-	ln -s `pwd`/git/template ~/.git_template
+	ln -fs `pwd`/git/gitconfig ~/.gitconfig
+	ln -fs `pwd`/git/template ~/.git_template
+
+install-sh:
+	ln -fs `pwd`/bashrc ~/.bashrc
+
+install-zsh: install-oh-my-zsh
+	ln -fs `pwd`/zshrc ~/.zshrc
+
+install-smartcd: 
+	@if [ ! -d ~/.smartcd ]; then curl --silent -L http://smartcd.org/install | bash; fi
+
+install-smartcd-templates: install-smartcd
+	ln -fs `pwd`/smartcd/templates ~/.smartcd/templates
+
+install-oh-my-zsh:
+	@if [ ! -d ~/.oh-my-zsh ]; then curl --silent -L http://install.ohmyz.sh | sh; fi
+	ln -fs `pwd`/zsh/my.zsh-theme ~/.oh-my-zsh/themes/my.zsh-theme
+	echo Oh My ZSH installed!
