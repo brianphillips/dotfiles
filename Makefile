@@ -16,7 +16,7 @@ install-sh:
 install-zsh: install-oh-my-zsh
 	ln -fs `pwd`/zshrc ~/.zshrc
 
-install-smartcd: 
+install-smartcd:
 	@if [ ! -d ~/.smartcd ]; then curl --silent -L http://smartcd.org/install | bash; fi
 
 install-smartcd-templates: install-smartcd
