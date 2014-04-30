@@ -1,4 +1,4 @@
-install: install-vim install-git install-sh install-smartcd
+install: install-vim install-git install-sh install-smartcd install-z
 	git config user.email brian@thephillips.info
 
 install-vim:
@@ -33,4 +33,5 @@ install-z:
 
 install-tig:
 	@if [ ! -d `pwd`/tig ]; then git clone git@github.com:jonas/tig.git; fi
-	cd tig; ./configure --prefix=$$HOME/opt; make; make install
+	cd tig; ./autogen.sh; ./configure --prefix=$$HOME/opt; make; make install
+	ln -fs "$$HOME/opt/bin/tig" "$$HOME/bin/tig"
