@@ -30,3 +30,7 @@ install-oh-my-zsh:
 install-z:
 	@if [ ! -d `pwd`/z ]; then git clone git@github.com:rupa/z.git; fi
 	ln -fs `pwd`/z/z.sh ~/.z.sh
+
+install-tig:
+	@if [ ! -d `pwd`/tig ]; then git clone git@github.com:jonas/tig.git; fi
+	cd tig; ./configure --prefix=$$HOME/opt; make; make install

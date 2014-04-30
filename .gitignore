@@ -3,3 +3,4 @@ vim/vim-addons
 git/.gitconfig.local
 .netrwhist
 z/*
+tig/
