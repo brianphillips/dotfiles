@@ -11,6 +11,7 @@ install-git:
 
 install-sh:
 	ln -fs `pwd`/bashrc ~/.bashrc
+	ln -fs `pwd`/environment.sh ~/.environment.sh
 
 install-zsh: install-oh-my-zsh
 	ln -fs `pwd`/zshrc ~/.zshrc
@@ -25,3 +26,7 @@ install-oh-my-zsh:
 	@if [ ! -d ~/.oh-my-zsh ]; then curl --silent -L http://install.ohmyz.sh | sh; fi
 	ln -fs `pwd`/zsh/my.zsh-theme ~/.oh-my-zsh/themes/my.zsh-theme
 	echo Oh My ZSH installed!
+
+install-z:
+	@if [ ! -d `pwd`/z ]; then git clone git@github.com:rupa/z.git; fi
+	ln -fs `pwd`/z/z.sh ~/.z.sh
