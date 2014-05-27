@@ -10,6 +10,7 @@ au BufNewFile,BufRead *.psgi  setf perl
 au BufNewFile,BufRead *.md set ft=markdown
 au BufNewFile,BufRead *.mh  set ft=mason
 au BufNewFile,BufRead *.mhtml  setf mason
+au BufNewFile,BufRead *.liquid  setf html.twig
 au FileType xml setlocal foldmethod=syntax
 
 au ColorScheme * highlight Normal ctermbg=None
@@ -141,6 +142,9 @@ let g:rubytest_cmd_example = "ruby %p -n '/%c/'"
 let g:rubytest_minitest_spec = 1
 
 let g:localvimrc_persistent = 1
+
+let g:snips_author = 'Brian Phillips'
+let g:snips_email  = 'bphillips@shutterstock.com'
 " }}}2
 
 " Mappings {{{2

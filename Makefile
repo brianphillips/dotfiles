@@ -1,4 +1,4 @@
-install: install-vim install-git install-sh install-smartcd install-z install-tmux
+install: install-vim install-git install-sh install-smartcd install-z install-tmux install-screen
 	git config user.email brian@thephillips.info
 
 install-vim:
@@ -18,6 +18,9 @@ install-zsh: install-oh-my-zsh
 
 install-smartcd:
 	@if [ ! -d ~/.smartcd ]; then curl --silent -L http://smartcd.org/install | bash; fi
+
+install-screen:
+	ln -fs `pwd`/screenrc ~/.screenrc
 
 install-smartcd-templates: install-smartcd
 	ln -nfs `pwd`/smartcd/templates ~/.smartcd/templates
