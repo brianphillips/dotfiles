@@ -7,7 +7,7 @@ function dir_name {
 	[ -f $PWD/.dir-name ] && cat $PWD/.dir-name || echo "${PWD/#$HOME/~}"
 }
 
-plugins=(git screen tmux ssh-agent)
+plugins=(git screen tmux)
 source "$HOME/.environment.sh"
 source $ZSH/oh-my-zsh.sh
 
