@@ -1,5 +1,5 @@
 export EDITOR='vim'
-export PATH="$HOME/bin:$HOME/opt/bin:$PATH"
+export PATH="$HOME/bin:$HOME/opt/bin:/opt/git/bin:$PATH"
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
 

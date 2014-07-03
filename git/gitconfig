@@ -1,10 +1,8 @@
 [color]
 	ui = true
-[include]
-	path = .gitconfig.local
 [user]
 	name = Brian Phillips
-	email = brian@thephillips.info
+	email = bphillips@shutterstock.com
 [github]
 	user = brianphillips
 [diff]
@@ -23,3 +21,5 @@
 	recent = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(authoremail) %(refname:short)'
 [init]
 	templatedir = ~/.git_template
+[include]
+	path = ~/.gitconfig.local
