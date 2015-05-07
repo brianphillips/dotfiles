@@ -13,6 +13,7 @@
 ########################################################################
 
 # Enter any bash_enter commands below here: (leave this line!)
+unset ROCK_PATH
 eval $(rock env | sed 's/export/autostash/; s/=.*//')
 eval $(rock env);
 

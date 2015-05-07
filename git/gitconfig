@@ -7,8 +7,9 @@
 	user = brianphillips
 [diff]
 	tool = vimdiff
+	algorithm = patience
 [merge]
-	tool = splice
+	tool = vimdiff
 [mergetool "splice"]
 	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 	trustExitCode = true
@@ -17,14 +18,19 @@
 [push]
 	default = current
 [alias]
+	ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
+	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 	merged = branch --merged
 	contains = branch --contains
-	merge-into = "!f() { git checkout $1 && git pull --ff-only && git merge $(git rev-parse --symbolic-full-name @{-1}) && git checkout @{-1}; }; f"
+	merge-into = "!f() { git checkout $1 && git pull --ff-only && git merge --no-ff --no-edit $(git rev-parse --symbolic-full-name @{-1}) && git checkout @{-1}; }; f"
 	ctags = !.git/hooks/ctags
 	recent = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(authoremail) %(refname:short)'
+	recent-remote = "!f() { git for-each-ref --sort=-committerdate refs/remotes/$1 --format='%(committerdate:short) %(authorname) %(authoremail) %(refname:short)'; }; f"
 	review = "!f() { vim -p $(git diff --name-only origin/master... $@) -c 'tabdo Gdiff '$(git merge-base origin/master HEAD); }; f"
 	review-2 = "!f() { for files in $(git diff --name-only origin/master... $@ | xargs -n 4 perl -le 'print join q(|), @ARGV'); do files=${files//\\|/ }; vim -p $files -c 'tabdo Gdiff '$(git merge-base origin/master HEAD) || break; done; }; f"
 [init]
 	templatedir = ~/.git_template
 [include]
 	path = ~/.gitconfig.local
+[grep]
+	lineNumber = true

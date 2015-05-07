@@ -2,6 +2,7 @@ export EDITOR='vim'
 export PATH="$HOME/bin:$HOME/opt/bin:/opt/git/bin:$PATH"
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
 
 # Predictable SSH authentication socket location.
 SOCK="$HOME/.ssh/ssh-auth-sock"
