@@ -11,7 +11,6 @@ au BufNewFile,BufRead *.md set ft=markdown
 au BufNewFile,BufRead *.mh  set ft=mason
 au BufNewFile,BufRead *.mhtml  setf mason
 au BufNewFile,BufRead *.liquid  setf html.twig
-au FileType xml setlocal foldmethod=syntax
 
 au ColorScheme * highlight Normal ctermbg=None
 au ColorScheme * highlight NonText ctermbg=None
@@ -170,6 +169,8 @@ let g:snips_email  = 'bphillips@shutterstock.com'
 
 let g:indent_guides_guide_size = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+
+let javaScript_fold=1
 " }}}2
 
 " Mappings {{{2
