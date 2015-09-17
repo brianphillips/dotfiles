@@ -60,6 +60,7 @@ call SetupVAM()
 VAMActivate
   \ ctrlp
   \ desert256
+  \ editorconfig-vim
   \ fileline
   \ fugitive
   \ Indent_Guides
@@ -77,7 +78,7 @@ VAMActivate
   \ Syntastic
   \ textobj-rubyblock
   \ Tagbar
-  \ TabLineNumbers
+  \ tabline
   \ Tabular
   \ The_NERD_tree
   \ UltiSnips
@@ -193,7 +194,7 @@ vmap <Leader>a> :Tabularize /=><CR>
 nmap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 vmap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 nmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
-vmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
+vmap <Leader>a<bar> :Tabularize /<bar><CR>
 
 nnoremap <Leader><c-h> :SidewaysLeft<cr>
 nnoremap <Leader><c-l> :SidewaysRight<cr>

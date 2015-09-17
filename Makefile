@@ -31,7 +31,7 @@ install-oh-my-zsh:
 	echo Oh My ZSH installed!
 
 install-z:
-	@if [ ! -d `pwd`/z ]; then git clone git@github.com:rupa/z.git; fi
+	@if [ ! -d `pwd`/z ]; then git clone http://github.com/rupa/z.git; fi
 	ln -fs `pwd`/z/z.sh ~/.z.sh
 	touch $$HOME/.z
 
